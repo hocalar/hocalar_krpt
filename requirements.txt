@@ -3,4 +3,5 @@ ccxt
 pandas
 numpy
 requests
+openpyxl
 xlsxwriter
