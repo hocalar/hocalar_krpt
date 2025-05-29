@@ -16,7 +16,7 @@ st.title("Hocalar Kripto Tarama - AVWAP & Volume Profile")
 # === Binance Sembollerini Al ===
 @st.cache_data
 def fetch_binance_usdt_symbols():
-    exchange = ccxt.binance()
+    exchange = ccxt.binanceus()
     markets = exchange.load_markets()
     symbols_info = []
     for symbol, market in markets.items():
@@ -26,7 +26,7 @@ def fetch_binance_usdt_symbols():
 
 # === OHLCV Verisi Al ===
 def fetch_ohlcv_data_binance(symbol):
-    exchange = ccxt.binance()
+    exchange = ccxt.binanceus()
     since = exchange.parse8601('2019-01-01T00:00:00Z')
     ohlcv = []
     while since < exchange.milliseconds():
