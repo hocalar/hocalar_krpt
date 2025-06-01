@@ -29,16 +29,16 @@ url2 = "https://docs.google.com/spreadsheets/d/1E8JmmVTtaxLFWJBYj2bVMhaYVydF9Cv-
 df1 = load_google_sheet(url1)
 df2 = load_google_sheet(url2)
 
-# === Identify key column to merge on ===
-merge_keys = ['Ticker', 'Symbol', 'Crypto Name', 'Name']
-key = next((col for col in df1.columns if col in df2.columns and col in merge_keys), None)
+# === Normalize Token Names for Merge ===
+if "Token" in df1.columns:
+    df1["Token"] = df1["Token"].str.replace("/USDT", "", regex=False).str.strip()
 
-if not key:
-    st.error("No common key (e.g., Ticker/Symbol/Name) found in both sheets.")
+# === Merge using Token <-> Sembol ===
+if "Token" in df1.columns and "Sembol" in df2.columns:
+    merged = pd.merge(df1, df2, left_on="Token", right_on="Sembol", how="left")
+else:
+    st.error("Required columns 'Token' and 'Sembol' not found in the sheets.")
     st.stop()
-
-# === Merge ===
-merged = pd.merge(df1, df2, on=key, how="left")
 
 # === Sidebar: Column Selector ===
 st.sidebar.header("Filter Options")
