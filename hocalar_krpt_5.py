@@ -3,7 +3,7 @@ import pandas as pd
 from io import BytesIO
 
 st.set_page_config(layout="wide")
-st.title("Merged Crypto Data from Google Sheets")
+st.title("Hocalar Kripto")
 
 # === Convert Google Sheets URLs to export CSV format ===
 def convert_edit_url_to_csv(url):
