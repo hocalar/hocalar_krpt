@@ -79,6 +79,6 @@ excel_data = convert_df_to_excel(filtered_df[selected_columns])
 st.download_button(
     label="📥 Excel Olarak İndir",
     data=excel_data,
-    file_name="merged_crypto_data.xlsx",
+    file_name="hocalar_kripto.xlsx",
     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 )
