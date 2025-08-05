@@ -66,7 +66,7 @@ for col in numeric_cols:
         filtered_df = filtered_df[(filtered_df[col] >= selected_range[0]) & (filtered_df[col] <= selected_range[1])]
 
 # === Display Table ===
-st.dataframe(filtered_df[selected_columns], use_container_width=True)
+# st.dataframe(filtered_df[selected_columns], use_container_width=True)
 # === Display Table ===
 
 # ➤ Seçilen kolonlardan tamamı boş olanları çıkar
