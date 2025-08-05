@@ -10,7 +10,7 @@ def convert_edit_url_to_csv(url):
     return url.split("/edit")[0] + "/export?format=csv"
 
 # === Load Data from Google Sheets ===
-@st.cache_data
+@st.cache_data(ttl=0)
 def load_google_sheet(url):
     try:
         csv_url = convert_edit_url_to_csv(url)
