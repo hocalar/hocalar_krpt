@@ -67,6 +67,16 @@ for col in numeric_cols:
 
 # === Display Table ===
 st.dataframe(filtered_df[selected_columns], use_container_width=True)
+# === Display Table ===
+
+# ➤ Seçilen kolonlardan tamamı boş olanları çıkar
+filtered_df = filtered_df[selected_columns].dropna(axis=1, how="all")
+
+# (İsteğe bağlı) Seçilen kolon listesini de güncelle
+selected_columns = filtered_df.columns.tolist()
+
+# Veri çerçevesini göster
+st.dataframe(filtered_df, use_container_width=True)
 
 # === Excel Export ===
 def convert_df_to_excel(df):
