@@ -26,7 +26,9 @@ url1 = "https://docs.google.com/spreadsheets/d/1lPP3BdIVMGAijVp5OWUbE-rGO-PRrUCT
 url2 = "https://docs.google.com/spreadsheets/d/1E8JmmVTtaxLFWJBYj2bVMhaYVydF9Cv-qJ5V415IvYs/edit?usp=drivesdk"
 
 # === Load Sheets ===
-df1 = load_google_sheet(url1)
+# Guncel sayfa GID’sini elle belirle
+df1 = load_google_sheet(convert_edit_url_to_csv(url1, gid="0"))  # örnek GID değeri (ilk sekme genelde "0" olur)
+#df1 = load_google_sheet(url1)
 df2 = load_google_sheet(url2)
 
 # === Normalize Token Names for Merge ===
