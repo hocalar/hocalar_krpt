@@ -22,8 +22,10 @@ def load_google_sheet(url):
         return pd.DataFrame()
 
 # === URLs ===
-url1 = "https://docs.google.com/spreadsheets/d/1lPP3BdIVMGAijVp5OWUbE-rGO-PRrUCT9AtKblg_lTs/edit?usp=drivesdk"
-url2 = "https://docs.google.com/spreadsheets/d/1E8JmmVTtaxLFWJBYj2bVMhaYVydF9Cv-qJ5V415IvYs/edit?usp=drivesdk"
+#url1 = "https://docs.google.com/spreadsheets/d/1lPP3BdIVMGAijVp5OWUbE-rGO-PRrUCT9AtKblg_lTs/edit?usp=drivesdk"
+url1 = "https://docs.google.com/spreadsheets/d/12w2gEAIxLlumDWG_kzXfO0lB5EdTim6_mnOR1uhVB_0/edit?usp=drivesdk"
+#url2 = "https://docs.google.com/spreadsheets/d/1E8JmmVTtaxLFWJBYj2bVMhaYVydF9Cv-qJ5V415IvYs/edit?usp=drivesdk"
+url2 = "https://docs.google.com/spreadsheets/d/14CRP9oM7852jl3X7C8KeXKjvwZsR9sXtUnzYWIii0CA/edit?usp=drivesdk"
 
 # === Load Sheets ===
 # Guncel sayfa GID’sini elle belirle
