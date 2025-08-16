@@ -6,8 +6,15 @@ st.set_page_config(layout="wide")
 st.title("Hocalar Kripto")
 
 # === Convert Google Sheets URLs to export CSV format ===
+#def convert_edit_url_to_csv(url):
+#    return url.split("/edit")[0] + "/export?format=csv"
 def convert_edit_url_to_csv(url):
-    return url.split("/edit")[0] + "/export?format=csv"
+    base = url.split("/edit")[0]
+    if "gid=" in url:
+        # mevcut gid parametresini koru
+        gid = url.split("gid=")[-1].split("&")[0]
+        return f"{base}/export?format=csv&gid={gid}"
+    return f"{base}/export?format=csv"
 
 # === Load Data from Google Sheets ===
 @st.cache_data(ttl=0)
