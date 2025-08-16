@@ -48,6 +48,10 @@ if "Token" in df1.columns:
 if "Token" in df1.columns and "Sembol" in df2.columns:
     merged = pd.merge(df1, df2, left_on="Token", right_on="Sembol", how="left", suffixes=("_df1", "_df2"))
     #merged = merged.dropna(axis=0, how="any")
+    # --- Exchange kolonunu çıkar ---
+    if "Exchange" in merged.columns:
+        merged = merged.drop(columns=["Exchange"])
+    
 else:
     st.error("Required columns 'Token' and 'Sembol' not found in the sheets.")
     st.stop()
