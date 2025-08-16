@@ -39,7 +39,7 @@ if "Token" in df1.columns:
 
 # === Merge using Token <-> Sembol ===
 if "Token" in df1.columns and "Sembol" in df2.columns:
-    merged = pd.merge(df1, df2, left_on="Token", right_on="Sembol", how="left")
+    merged = pd.merge(df1, df2, left_on="Token", right_on="Sembol", how="left", suffixes=("_df1", "_df2")
 else:
     st.error("Required columns 'Token' and 'Sembol' not found in the sheets.")
     st.stop()
