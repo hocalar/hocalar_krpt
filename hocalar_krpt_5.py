@@ -47,7 +47,7 @@ if "Token" in df1.columns:
 # === Merge using Token <-> Sembol ===
 if "Token" in df1.columns and "Sembol" in df2.columns:
     merged = pd.merge(df1, df2, left_on="Token", right_on="Sembol", how="left", suffixes=("_df1", "_df2"))
-    merged = merged.dropna(axis=0, how="any")
+    #merged = merged.dropna(axis=0, how="any")
 else:
     st.error("Required columns 'Token' and 'Sembol' not found in the sheets.")
     st.stop()
@@ -82,10 +82,10 @@ for col in numeric_cols:
 # === Display Table ===
 
 # ➤ Seçilen kolonlardan tamamı boş olanları çıkar
-filtered_df = filtered_df[selected_columns].dropna(axis=1, how = "any") #how="all")
+filtered_df = filtered_df[selected_columns].dropna(axis=1, how="all")
 
 # (İsteğe bağlı) Seçilen kolon listesini de güncelle
-selected_columns = filtered_df.columns.tolist()
+#selected_columns = filtered_df.columns.tolist()
 
 # Veri çerçevesini göster
 st.dataframe(filtered_df, use_container_width=True)
