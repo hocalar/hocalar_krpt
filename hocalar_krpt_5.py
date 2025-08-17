@@ -41,17 +41,21 @@ df1 = load_google_sheet(url1)
 df2 = load_google_sheet(url2)
 
 # === Normalize Token Names for Merge ===
+#if "Token" in df1.columns:
+#    df1["Token"] = df1["Token"].str.replace("/USDT", "", regex=False).str.strip()
+
+# === Normalize Token Names for Merge ===
 if "Token" in df1.columns:
-    df1["Token"] = df1["Token"].str.replace("/USDT", "", regex=False).str.strip()
+    df1["Token"] = df1["Token"].str.replace("/USDT", "", regex=False).str.strip().str.upper()
+
+# === Normalize Sembol in df2 ===
+if "Sembol" in df2.columns:
+    df2["Sembol"] = df2["Sembol"].str.strip().str.upper()    
 
 # === Merge using Token <-> Sembol ===
 if "Token" in df1.columns and "Sembol" in df2.columns:
     merged = pd.merge(df1, df2, left_on="Token", right_on="Sembol", how="left", suffixes=("_df1", "_df2"))
-    #merged = merged.dropna(axis=0, how="any")
-    # --- Exchange kolonunu çıkar ---
-    if "Exchange" in merged.columns:
-        merged = merged.drop(columns=["Exchange"])
-    
+
 else:
     st.error("Required columns 'Token' and 'Sembol' not found in the sheets.")
     st.stop()
