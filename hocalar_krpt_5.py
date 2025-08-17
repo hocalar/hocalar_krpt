@@ -101,7 +101,8 @@ def convert_df_to_excel(df):
         df.to_excel(writer, index=False, sheet_name="MergedData")
     return output.getvalue()
 
-excel_data = convert_df_to_excel(filtered_df[selected_columns])
+#excel_data = convert_df_to_excel(filtered_df[selected_columns])
+excel_data = convert_df_to_excel(filtered_df)
 st.download_button(
     label="📥 Excel Olarak İndir",
     data=excel_data,
